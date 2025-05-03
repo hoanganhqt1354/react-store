@@ -15,7 +15,6 @@ const FeaturedProducts = observer(() => {
 
   const loading = productStore.products_loading
   const error = productStore.products_error
-  const products = productStore.products
   const featured = productStore.featured_products()
 
   if (loading) {
@@ -32,7 +31,7 @@ const FeaturedProducts = observer(() => {
         <div className='underline'></div>
       </div>
       <div className='section-center featured'>
-        {products.slice(0, 3).map((product) => {
+        {featured.slice(0, 3).map((product) => {
           return <Product key={product.id} {...product} />
         })}
       </div>
