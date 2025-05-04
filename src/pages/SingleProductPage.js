@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { formatPrice } from '../utils/helpers'
 import { observer } from "mobx-react-lite";
@@ -18,12 +18,25 @@ import {
 const SingleProductPage = observer((props) => {
 
   const { id } = useParams()
-  const { single_product_loading: loading, single_product_error: error, single_product: product } = productStore
+  const navigate = useNavigate()
+
+  const {
+    single_product_loading: loading,
+    single_product_error: error,
+    single_product: product
+  } = productStore
 
   useEffect(() => {
     productStore.fetchSingleProduct(id)
-    console.log('fetchSingleProduct', id)
   }, [id]);
+
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        navigate('/')
+      }, 3000)
+    }
+  }, [error])
 
   if (loading) {
     return <Loading />
