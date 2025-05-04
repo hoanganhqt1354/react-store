@@ -18,7 +18,7 @@ import {
 const SingleProductPage = observer((props) => {
 
   const { id } = useParams()
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const {
     single_product_loading: loading,
@@ -33,9 +33,11 @@ const SingleProductPage = observer((props) => {
   useEffect(() => {
     if (error) {
       setTimeout(() => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         navigate('/')
       }, 3000)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error])
 
   if (loading) {
