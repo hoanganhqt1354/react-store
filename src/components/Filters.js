@@ -42,14 +42,16 @@ const Filters = observer(() => {
       <div className='content'>
         <form className='form-control' onSubmit={(e) => e.preventDefault()}>
           {/* search input */}
-          <input
-            type='text'
-            name='text'
-            className='search-input'
-            placeholder='search'
-            value={text}
-            onChange={handleChange}
-          />
+          <div className='form-control'>
+            <input
+              type='text'
+              name='text'
+              className='search-input'
+              placeholder='search'
+              value={text}
+              onChange={handleChange}
+            />
+          </div>
           {/* end of search input */}
 
           {/* category */}
