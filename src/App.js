@@ -1,12 +1,16 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, } from 'react-router-dom'
-// import { Navbar, Sidebar, Footer } from './components'
+import {
+  Navbar,
+  // Sidebar,
+  // Footer
+} from './components'
 
 import {
   Home,
-  // Products,
+  About,
+  Products,
   // SingleProduct,
-  // About,
   // Cart,
   // Error,
   // Checkout,
@@ -17,8 +21,15 @@ import {
 function App() {
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Home />}/>
+        <Route path="/" element={<Home />} />
+      </Routes>
+      <Routes>
+        <Route path="/about" element={<About />} />
+      </Routes>
+      <Routes>
+        <Route path="/products" element={<Products />} />
       </Routes>
     </BrowserRouter>
   );

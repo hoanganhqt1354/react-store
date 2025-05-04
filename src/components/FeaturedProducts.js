@@ -1,14 +1,13 @@
 import React, { useEffect } from "react"
 import { observer } from "mobx-react-lite";
+import { productStore } from "../stores";
 import { Link } from 'react-router-dom'
-import productStore from "../stores/ProductStore";
 import styled from 'styled-components'
 import Error from './Error'
 import Loading from './Loading'
 import Product from './Product'
 
 const FeaturedProducts = observer(() => {
-
   useEffect(() => {
     productStore.fetchProducts()
   }, []);

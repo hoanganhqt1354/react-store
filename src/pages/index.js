@@ -1,7 +1,7 @@
 import Home from './HomePage'
-// import Products from './ProductsPage'
+import About from './AboutPage'
+import Products from './ProductsPage'
 // import SingleProduct from './SingleProductPage'
-// import About from './AboutPage'
 // import Cart from './CartPage'
 // import Error from './ErrorPage'
 // import Checkout from './CheckoutPage'
@@ -9,9 +9,9 @@ import Home from './HomePage'
 
 export {
   Home,
-  // Products,
+  About,
+  Products,
   // SingleProduct,
-  // About,
   // Cart,
   // Error,
   // Checkout,

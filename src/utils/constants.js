@@ -42,6 +42,6 @@ export const services = [
   },
 ]
 
-export const products_endpoint = '/react-store-products'
+export const products_endpoint = 'https://dev-mock-api-store.pantheonsite.io/react-store-products'
 
-export const single_product_endpoint = `/react-store-single-product?id=`
+export const single_product_endpoint = `https://dev-mock-api-store.pantheonsite.io/react-store-products?id=`

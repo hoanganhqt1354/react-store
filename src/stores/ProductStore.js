@@ -1,6 +1,8 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import axios from "axios";
 import { products_endpoint } from '../utils/constants'
+import filterStore from "./FilterStore";
+
 
 class ProductStore {
   products = [];
