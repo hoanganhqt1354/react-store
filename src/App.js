@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Routes, Route, } from 'react-router-dom'
 import {
   Navbar,
-  // Sidebar,
+  Sidebar,
   // Footer
 } from './components'
 
@@ -10,7 +10,7 @@ import {
   Home,
   About,
   Products,
-  // SingleProduct,
+  SingleProduct,
   // Cart,
   // Error,
   // Checkout,
@@ -22,14 +22,14 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
+      <Sidebar />
+      {/* <CartButtons /> */}
+      {/* <Footer /> */}
       <Routes>
         <Route path="/" element={<Home />} />
-      </Routes>
-      <Routes>
         <Route path="/about" element={<About />} />
-      </Routes>
-      <Routes>
         <Route path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<SingleProduct />} />
       </Routes>
     </BrowserRouter>
   );

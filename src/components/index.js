@@ -9,12 +9,12 @@ import Filters from './Filters'
 import Sort from './Sort'
 // import CartButtons from './CartButtons'
 // import Footer from './Footer'
-// import Sidebar from './Sidebar'
-// import Loading from './Loading'
-// import Error from './Error'
-// import ProductImages from './ProductImages'
+import Sidebar from './Sidebar'
+import Loading from './Loading'
+import Error from './Error'
+import ProductImages from './ProductImages'
+import Stars from './Stars'
 // import AddToCart from './AddToCart'
-// import Stars from './Stars'
 // import CartContent from './CarContent'
 // import StripeCheckout from './StripeCheckout'
 export {
@@ -29,12 +29,12 @@ export {
   Sort,
   // CartButtons,
   // Footer,
-  // Sidebar,
-  // Loading,
-  // Error,
-  // ProductImages,
+  Sidebar,
+  Loading,
+  Error,
+  ProductImages,
   // AddToCart,
-  // Stars,
+  Stars,
   // CartContent,
   // StripeCheckout,
 }

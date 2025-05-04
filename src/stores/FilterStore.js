@@ -1,4 +1,4 @@
-import { makeAutoObservable, reaction } from "mobx"
+import { makeAutoObservable } from "mobx"
 
 class FiltersStore {
   all_products = [];

@@ -1,7 +1,7 @@
 import React from "react"
 import styled from 'styled-components'
 import { observer } from "mobx-react-lite";
-import { filterStore, productStore } from "../stores";
+import { filterStore } from "../stores";
 import { getUniqueValues, formatPrice } from '../utils/helpers'
 import { FaCheck } from 'react-icons/fa'
 
