@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, } from 'react-router-dom'
 import {
   Navbar,
   Sidebar,
-  // Footer
+  Footer
 } from './components'
 
 import {
@@ -31,6 +31,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<SingleProduct />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

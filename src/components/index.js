@@ -8,12 +8,12 @@ import ProductList from './ProductList'
 import Filters from './Filters'
 import Sort from './Sort'
 import Sidebar from './Sidebar'
-// import CartButtons from './CartButtons'
-// import Footer from './Footer'
+import Footer from './Footer'
 import Loading from './Loading'
 import Error from './Error'
 import ProductImages from './ProductImages'
 import Stars from './Stars'
+// import CartButtons from './CartButtons'
 // import AddToCart from './AddToCart'
 // import CartContent from './CarContent'
 // import StripeCheckout from './StripeCheckout'
@@ -27,14 +27,14 @@ export {
   ProductList,
   Filters,
   Sort,
-  // CartButtons,
-  // Footer,
+  Footer,
   Sidebar,
   Loading,
   Error,
   ProductImages,
-  // AddToCart,
   Stars,
+  // AddToCart,
+  // CartButtons,
   // CartContent,
   // StripeCheckout,
 }

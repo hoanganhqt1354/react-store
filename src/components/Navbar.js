@@ -2,7 +2,7 @@ import React from "react"
 import styled from 'styled-components'
 import logo from '../assets/logo.svg'
 import { FaBars } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { links } from '../utils/constants'
 import { observer } from 'mobx-react-lite'
 import { productStore } from '../stores'
@@ -25,7 +25,7 @@ const Navbar = observer(() => {
             const { id, text, url } = link
             return (
               <li key={id}>
-                <Link to={url}>{text}</Link>
+                <NavLink to={url}>{text}</NavLink>
               </li>
             )
           })}
@@ -101,6 +101,10 @@ const NavContainer = styled.nav`
         &:hover {
           border-bottom: 2px solid var(--clr-primary-7);
         }
+      }
+      .active {
+        border-bottom: 2px solid var(--clr-primary-7);
+        color: var(--clr-primary-5);
       }
     }
     .cart-btn-wrapper {
