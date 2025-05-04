@@ -15,6 +15,8 @@ import {
   PageHero,
 } from '../components'
 
+import { Helmet } from 'react-helmet'
+
 const SingleProductPage = observer((props) => {
 
   const { id } = useParams()
@@ -27,7 +29,11 @@ const SingleProductPage = observer((props) => {
   } = productStore
 
   useEffect(() => {
-    productStore.fetchSingleProduct(id)
+    productStore.fetchSingleProduct(id).then(() => {
+      document.title = productStore.single_product.name.toUpperCase()
+    }).catch((err) => {
+      console.error(err)  // Handle error if needed
+    })
   }, [id]);
 
   useEffect(() => {
@@ -37,7 +43,7 @@ const SingleProductPage = observer((props) => {
         navigate('/')
       }, 3000)
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error])
 
   if (loading) {
@@ -61,6 +67,13 @@ const SingleProductPage = observer((props) => {
 
   return (
     <Wrapper>
+      {productStore.single_product?.name && (
+        <Helmet>
+          <title>{productStore.single_product.name}</title>
+          <meta name="description" content={productStore.single_product.description} />
+        </Helmet>
+      )}
+
       <PageHero title={name} product />
       <div className='section section-center page'>
         <Link to='/products' className='btn'>

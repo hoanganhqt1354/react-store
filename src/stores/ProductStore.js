@@ -35,6 +35,7 @@ class ProductStore {
   }
 
   async fetchSingleProduct(id) {
+    this.single_product = {};
     this.single_product_loading = true;
     this.single_product_error = null;
 

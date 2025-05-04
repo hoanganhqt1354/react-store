@@ -2,9 +2,14 @@ import React from "react"
 import styled from 'styled-components'
 import aboutImg from '../assets/hero-bcg.jpeg'
 import { PageHero } from '../components'
+import { Helmet } from 'react-helmet'
 const AboutPage = (props) => {
   return (
     <main>
+      <Helmet>
+        <title>About</title>
+      </Helmet>
+
       <PageHero title="About" />
       <Wrapper className='page section section-center'>
         <img src={aboutImg} alt="nice desk" />

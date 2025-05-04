@@ -6,11 +6,15 @@ import {
   Filters,
   Sort
  } from "../components";
-
+import { Helmet } from 'react-helmet'
 
 const ProductsPage = (props) => {
   return (
     <main>
+      <Helmet>
+        <title>Product List</title>
+      </Helmet>
+
       <PageHero title="Products"/>
       <Wrapper className='page'>
         <div className='section-center products'>
