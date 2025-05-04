@@ -4,6 +4,7 @@ class FiltersStore {
   all_products = [];
   filtered_products = [];
   grid_view = true;
+  sort = 'price-lowest';
   filters = {
     text: '',
     company: 'all',
@@ -17,14 +18,24 @@ class FiltersStore {
 
   constructor() {
     makeAutoObservable(this);
+    const grid_view = localStorage.getItem("grid_view")
+    if (grid_view) {
+      try {
+        this.grid_view = JSON.parse(grid_view)
+      } catch (e) {
+        console.error("Invalid localStorage data:", e)
+      }
+    }
   }
 
   setGridView() {
     this.grid_view = true;
+    localStorage.setItem("grid_view", JSON.stringify(this.grid_view))
   }
 
   setListView() {
     this.grid_view = false;
+    localStorage.setItem("grid_view", JSON.stringify(this.grid_view))
   }
 
   setAllProducts(products) {
@@ -43,6 +54,20 @@ class FiltersStore {
   updateFilters(name, value) {
     this.filters[name] = value;
     this.applyFilters();
+  }
+
+  updateSort(value) {
+    console.log(value);
+    this.sort = value;
+    if (value === 'price-lowest') {
+      this.filtered_products = this.filtered_products.sort((a, b) => a.price - b.price);
+    } else if (value === 'price-highest') {
+      this.filtered_products = this.filtered_products.sort((a, b) => b.price - a.price);
+    } else if (value === 'name-a') {
+      this.filtered_products = this.filtered_products.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (value === 'name-z') {
+      this.filtered_products = this.filtered_products.sort((a, b) => b.name.localeCompare(a.name));
+    }
   }
 
   getAllProducts() {

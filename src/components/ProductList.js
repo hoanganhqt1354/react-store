@@ -2,7 +2,6 @@ import React, { useEffect } from "react"
 import GridView from './GridView'
 import ListView from './ListView'
 import { observer } from "mobx-react-lite";
-import Loading from './Loading'
 
 import { productStore, filterStore } from "../stores";
 
@@ -21,11 +20,7 @@ const ProductList = observer(() => {
   const { filtered_products, grid_view } = filterStore;
 
 
-  if (products_loading) {
-    return <Loading />
-  }
-
-  if (filtered_products.length < 1) {
+  if (filtered_products.length < 1 && !products_loading) {
     return (
       <h5 style={{ textTransform: 'none' }}>
         Sorry, no products matched your search.
@@ -34,10 +29,10 @@ const ProductList = observer(() => {
   }
 
   if (grid_view === false) {
-    return <ListView products={filtered_products} />
+    return <ListView products={filtered_products} loading={products_loading} />
   }
 
-  return <GridView products={filtered_products} />
+  return <GridView products={filtered_products} loading={products_loading} />
 
 });
 

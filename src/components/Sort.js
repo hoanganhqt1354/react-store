@@ -4,13 +4,18 @@ import { filterStore } from "../stores"
 import { observer } from "mobx-react-lite";
 import styled from 'styled-components'
 const Sort = observer(() => {
-  const { filtered_products, grid_view } = filterStore
+  const { filtered_products, grid_view, sort } = filterStore
 
   const setGridView = () => {
     filterStore.setGridView()
   }
   const setListView = () => {
     filterStore.setListView()
+  }
+
+  const updateSort = (e) => {
+    const value = e.target.value
+    filterStore.updateSort(value)
   }
 
   return (
@@ -31,7 +36,7 @@ const Sort = observer(() => {
       </div>
       <p>{filtered_products.length} products found</p>
       <hr />
-      {/* <form>
+      <form>
         <label htmlFor='sort'>sort by</label>
         <select
           name='sort'
@@ -45,7 +50,7 @@ const Sort = observer(() => {
           <option value='name-a'>name (a - z)</option>
           <option value='name-z'>name (z - a)</option>
         </select>
-      </form> */}
+      </form>
     </Wrapper>
   )
 })
