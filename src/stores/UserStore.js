@@ -12,7 +12,6 @@ class UserStore {
 
   setUser(user) {
     this.myUser = user;
-    console.log("UserStore setUser", user);
   }
 
   setAuth(auth) {

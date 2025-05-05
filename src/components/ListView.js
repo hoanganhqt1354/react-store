@@ -3,6 +3,8 @@ import styled from "styled-components"
 import Skeleton from "react-loading-skeleton"
 import "react-loading-skeleton/dist/skeleton.css"
 import { Link } from 'react-router-dom'
+import { formatPrice } from '../utils/helpers'
+
 const ListView = ({ products, loading }) => {
   if (loading) {
     return (
@@ -31,7 +33,7 @@ const ListView = ({ products, loading }) => {
             <img src={image} alt={name} />
             <div className="info">
               <h4>{name}</h4>
-              <p className="price">${price}</p>
+              <p className="price">{formatPrice(price)}</p>
               <p>{description.substring(0, 150)}...</p>
               <Link to={`/products/${id}`} className='link btn'>
                 Details
