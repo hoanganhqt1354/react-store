@@ -5,10 +5,10 @@ import { FaBars } from 'react-icons/fa'
 import { Link, NavLink } from 'react-router-dom'
 import { links } from '../utils/constants'
 import { observer } from 'mobx-react-lite'
-import { productStore } from '../stores'
-
+import { productStore, userStore } from '../stores'
+import CartButtons from './CartButtons'
 const Navbar = observer(() => {
-
+  const { myUser } = userStore
   return (
     <NavContainer>
       <div className='nav-center'>
@@ -29,13 +29,13 @@ const Navbar = observer(() => {
               </li>
             )
           })}
-          {/* {myUser && (
+          {myUser && (
             <li>
               <Link to='/checkout'>checkout</Link>
             </li>
-          )} */}
+          )}
         </ul>
-        {/* <CartButtons /> */}
+        <CartButtons />
       </div>
     </NavContainer>
   )

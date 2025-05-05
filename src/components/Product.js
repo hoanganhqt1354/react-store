@@ -4,7 +4,7 @@ import { formatPrice } from '../utils/helpers'
 import { FaSearch } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
-const Product = ({ image, name, price, id }) => {
+const Product = ({ image, name, price, id, stock }) => {
   return (
     <Wrapper>
       <div className='container'>
@@ -17,11 +17,23 @@ const Product = ({ image, name, price, id }) => {
         <h5>{name}</h5>
         <p>{formatPrice(price)}</p>
       </footer>
+      {stock === 0 ? <p className='out-of-stock'>Out of Stock</p> : <p className='stock'>In Stock: {stock}</p>}
+
     </Wrapper>
   )
 };
 
 const Wrapper = styled.article`
+  .out-of-stock {
+    color: var(--clr-red-dark);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .stock {
+    color: var(--clr-green-dark);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
   .container {
     position: relative;
     background: var(--clr-black);

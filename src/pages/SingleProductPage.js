@@ -10,7 +10,7 @@ import {
   Loading,
   Error,
   ProductImages,
-  // AddToCart,
+  AddToCart,
   Stars,
   PageHero,
 } from '../components'
@@ -83,6 +83,7 @@ const SingleProductPage = observer((props) => {
           <ProductImages images={images} />
           <section className='content'>
             <h2>{name}</h2>
+            <Stars stars={stars} reviews={reviews} />
             <h5 className='price'>{formatPrice(price)}</h5>
             <p className='desc'>{description}</p>
             <p className='info'>
@@ -94,8 +95,7 @@ const SingleProductPage = observer((props) => {
             <p className='info'>
               <span>Brand : </span>{company}
             </p>
-            <Stars stars={stars} reviews={reviews} />
-            {/* <AddToCart stock={stock} id={id} /> */}
+            {stock > 0 && <AddToCart product={product} />}
           </section>
         </div>
       </div>

@@ -25,7 +25,7 @@ const ListView = ({ products, loading }) => {
   return (
     <Wrapper>
       {products.map((product) => {
-        const { id, name, price, image, description } = product
+        const { id, name, price, image, description, stock } = product
         return (
           <article key={id}>
             <img src={image} alt={name} />
@@ -36,6 +36,7 @@ const ListView = ({ products, loading }) => {
               <Link to={`/products/${id}`} className='link btn'>
                 Details
               </Link>
+              {stock === 0 ? <p className='out-of-stock'>Out of Stock</p> : <p className='stock'>In Stock: {stock}</p>}
             </div>
           </article>
         )
@@ -56,6 +57,20 @@ const Wrapper = styled.section`
     object-fit: cover;
     border-radius: var(--radius);
     margin-bottom: 1rem;
+  }
+
+  .out-of-stock {
+    color: var(--clr-red-dark);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 1rem;
+  }
+
+  .stock {
+    color: var(--clr-green-dark);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 1rem;
   }
 
   h4 {

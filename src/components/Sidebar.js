@@ -4,13 +4,14 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { FaTimes } from 'react-icons/fa'
 import { links } from '../utils/constants'
-import { productStore } from '../stores'
+import { productStore, userStore } from '../stores'
 import { observer } from 'mobx-react-lite'
+import CartButtons from './CartButtons'
 
 const Sidebar = observer((props) => {
 
   const { isSidebarOpen } = productStore
-
+  const { myUser } = userStore
   return (
     <Wrapper>
       <aside className={`${isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'}`}>
@@ -31,12 +32,15 @@ const Sidebar = observer((props) => {
               </li>
             )
           })}
+          {myUser && (
+            <li>
+              <Link to='/checkout' onClick={() => productStore.closeSidebar()}>
+                checkout
+              </Link>
+            </li>
+          )}
         </ul>
-        {/* <div className='cart-btn-wrapper'>
-          <Link to='/cart' className='btn' onClick={() => productStore.closeSidebar()}>
-            cart
-          </Link>
-        </div> */}
+        <CartButtons />
       </aside>
     </Wrapper>
   )

@@ -13,9 +13,10 @@ import Loading from './Loading'
 import Error from './Error'
 import ProductImages from './ProductImages'
 import Stars from './Stars'
-// import CartButtons from './CartButtons'
-// import AddToCart from './AddToCart'
-// import CartContent from './CarContent'
+import AuthSync from './AuthSync'
+import CartButtons from './CartButtons'
+import AddToCart from './AddToCart'
+import CartContent from './CarContent'
 // import StripeCheckout from './StripeCheckout'
 export {
   Hero,
@@ -33,8 +34,9 @@ export {
   Error,
   ProductImages,
   Stars,
-  // AddToCart,
-  // CartButtons,
-  // CartContent,
+  AuthSync,
+  AddToCart,
+  CartButtons,
+  CartContent,
   // StripeCheckout,
 }
